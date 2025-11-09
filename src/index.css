@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+  themes: light --default;
+ }
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: blue;
+  --color-secondary: teal;
+}
+/* Ensure these lines are at the very top of your input.css file */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* --- Custom Button Class for Versatility --- */
+.my-custom-btn {
+  /* 1. Base Utility: Inherits essential styles (padding, transitions, flex alignment) from DaisyUI's btn. */
+  @apply btn; 
+
+  /* 2. Sizing & Shape */
+  @apply w-full sm:w-auto min-h-12 h-auto; /* Full width on small screens, minimum height for clickability */
+  @apply px-8 py-3; /* Generous padding for a comfortable feel */
+  @apply rounded-lg; /* Slightly rounded corners */
+
+  /* 3. Text and Font */
+  @apply text-base font-semibold uppercase tracking-wide; /* Larger text, bold, and slightly spread out */
+
+  /* 4. Default Appearance (using your configured colors, assuming they work) */
+  @apply bg-primary text-white border-primary; /* Uses the 'primary' color from your DaisyUI config */
+
+  /* 5. Hover and Interaction */
+  @apply hover:bg-secondary hover:border-secondary; /* Switches to the 'secondary' color on hover */
+  @apply active:scale-[0.98]; /* Adds a slight press-down effect when clicked */
+  @apply transition-all duration-300 ease-in-out; /* Smooth transition for all changes */
+
+  /* 6. Focus and Accessibility */
+  @apply focus:outline-none focus:ring-4 focus:ring-primary focus:ring-opacity-50; /* Clear focus indicator */
+
+  /* 7. Disabled State */
+  @apply disabled:bg-gray-400 disabled:border-gray-400 disabled:text-gray-700 disabled:cursor-not-allowed;
+}
+
+/* --- Example Modifier: Outlined Version --- */
+.my-custom-btn-outline {
+  @apply btn-outline; /* Inherit the DaisyUI outline style */
+  @apply text-primary border-primary; /* Ensure text and border match primary color */
+  @apply hover:bg-primary hover:text-white; /* Fill with primary color on hover */
+}
