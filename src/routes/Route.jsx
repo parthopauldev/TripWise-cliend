@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../layouts/RootLayout";
-import Home from "../components/Home/Home";
+import Home from "../pages/Home/Home";
 import AllVehicles from './../pages/AllVehicles/AllVehicles';
 import AddVehicle from "../pages/AddVehicle/AddVehicle";
 import MyVehicles from "../pages/MyVehicles/MyVehicles";
