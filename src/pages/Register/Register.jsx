@@ -8,9 +8,9 @@ const Register = () => {
         e.preventDefault();
         
         const form = e.target;
-        const name = form.name.value;
+        const email = form.email.value;
         const password = form.password.value;
-        createUser(name, password)
+        createUser(email, password)
             .then(result => {
                 console.log( result.user);
                 
@@ -29,7 +29,7 @@ const Register = () => {
 
                 <fieldset className="fieldset">
                     <label className="label">Email</label>
-                    <input type="email" name='name' className="input" placeholder="Email" />
+                    <input type="email" name='email' className="input" placeholder="Email" />
                     <label className="label">Password</label>
                     <input type="password" className="input" name='password' placeholder="Password" />
                     <div><a className="link link-hover">Forgot password?</a></div>
