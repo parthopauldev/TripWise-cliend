@@ -3,7 +3,9 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Navbar = () => {
-  const {user,signOutUser}=use(AuthContext)
+  const { user, signOutUser } = use(AuthContext)
+  console.log(user);
+  
 //   Home, All Vehicles, Add Vehicle, My Vehicles, My
 // Bookings, Login/Register
   const links = <div className="space-x-4">
