@@ -8,6 +8,7 @@ import MyBookings from "../pages/MyBookings/MyBookings";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import ProductDetails from "../components/ProductDetails/ProductDetails";
 
 const router = createBrowserRouter([
     {
@@ -41,6 +42,12 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element:<Login></Login>
+            },
+            {
+                path: '/productDetails/:id',
+                loader: ({ params }) => fetch(`http://localhost:3000/products/${params.id}`),
+                hydrateFallbackElement:<p>loading ...</p>,
+                element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
             },
         ]
         

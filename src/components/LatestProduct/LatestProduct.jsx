@@ -6,7 +6,7 @@ const LatestProduct = ({ product }) => {
     
     const {vehicleName,_id}=product
     return (
-        <div>
+        <div className='border'>
 
             <p>{vehicleName}</p>
             <Link to={`/productDetails/${_id}`}>Details</Link>
