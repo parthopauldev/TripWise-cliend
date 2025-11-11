@@ -9,8 +9,9 @@ const Home = () => {
    
   axiosInstance.get("/products").then((data) => {
     const products = data.data;
-      const latestProducts = products.slice(-6);
-      setLatestProducts(latestProducts); // 4. Update the state
+    const latestProducts = products.slice(-6);
+    const reversedProducts = latestProducts.reverse();
+      setLatestProducts(reversedProducts); // 4. Update the state
         setLoading(false);
     console.log(latestProducts);
   });
