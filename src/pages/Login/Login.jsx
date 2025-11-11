@@ -4,7 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { logInUser } = use(AuthContext);
+    const { logInUser,loginWithGoogle } = use(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -33,7 +33,27 @@ const Login = () => {
             Swal.fire(err.message);
             
         })
-}
+    }
+    
+    let handleLoginWithGoogle = () => {
+  
+    loginWithGoogle()
+      .then(result => {
+     
+      Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "You Login Successfully",
+  showConfirmButton: false,
+  timer: 1500
+});
+      navigate(`${location.state?location.state:'/'}`)
+    })
+      .catch(err => {
+      Swal.fire(err.message);
+    
+    })
+  }
     return (
          <div className="card bg-base-100 mx-auto w-full max-w-sm shrink-0 shadow-2xl">
             <h1 className="text-5xl font-bold">Login now!</h1>
@@ -46,11 +66,12 @@ const Login = () => {
                     <label className="label">Password</label>
                     <input type="password" className="input" name='password' placeholder="Password" />
                     <div><a className="link link-hover">Forgot password?</a></div>
-                    <button className="btn btn-neutral mt-4">Login</button>
+                        <button className="btn btn-neutral mt-4">Login</button>
+
                     </fieldset>
-                    <p>Do not have any account  <Link className='text-blue-400' to={'/register'}>Register</Link> </p>
                 </form>
-        
+          <button onClick={handleLoginWithGoogle} className="btn btn-outline btn-primary">Login With Google</button>
+                    <p>Dont’t Have An Account ?<Link className='text-blue-400' to={'/register'}>Register</Link> </p>
             </div>
         </div>
     );
