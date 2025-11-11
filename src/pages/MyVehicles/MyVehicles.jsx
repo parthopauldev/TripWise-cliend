@@ -1,9 +1,11 @@
-import React, { use, useEffect, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import useAxiosSecure from "./../../hooks/useAxiosSecure";
 import { AuthContext } from "../../contexts/AuthContext";
 import Swal from "sweetalert2";
 import useAxios from "../../hooks/useAxios";
 const MyVehicles = () => {
+        const updateProductModalRef = useRef(null);
+
   const axiosSecure = useAxiosSecure();
     const { user } = use(AuthContext);
     const axiosInstance = useAxios();
@@ -49,18 +51,34 @@ const MyVehicles = () => {
                 }
             });
     }
+      const handleProductModalOpen = () => {
+        updateProductModalRef.current.showModal();
+    }
     return <div>
         {
             products.map(product => (
               <div className='border'>
             <p>{product.vehicleName}</p> 
             <p>{product.userEmail}</p>
-            <button className='btn'>update</button>
+            <button onClick={handleProductModalOpen} className='btn'>update</button>
           
             <button onClick={()=>handleDeleteProduct(product._id)} className='btn'>Delete</button>
         </div>
             ))
-      }
+        }
+        {/* Open the modal using document.getElementById('ID').showModal() method */}
+<dialog ref={updateProductModalRef} id="my_modal_1" className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click the button below to close</p>
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
   </div>;
 };
 
