@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState, useContext } from "react"; 
+import React, { useEffect, useRef, useState, useContext, use } from "react"; 
 import useAxiosSecure from "./../../hooks/useAxiosSecure";
 import { AuthContext } from "../../contexts/AuthContext";
 import Swal from "sweetalert2";
@@ -10,7 +10,7 @@ const MyVehicles = () => {
     const [updatingProductId, setUpdatingProductId] = useState(null);
     
     const axiosSecure = useAxiosSecure();
-    const { user } = useContext(AuthContext); 
+    const { user } = use(AuthContext); 
     const axiosInstance = useAxios();
     const [products, setProducts] = useState([])
 

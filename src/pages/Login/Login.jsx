@@ -55,23 +55,23 @@ const Login = () => {
     })
   }
     return (
-         <div className="card bg-base-100 mx-auto w-full max-w-sm shrink-0 shadow-2xl">
-            <h1 className="text-5xl font-bold">Login now!</h1>
+         <div className="card my-[80px] text-primary bg-base-100 mx-auto w-full max-w-sm shrink-0 shadow-2xl">
+            <h1 className="text-5xl font-bold text-center pt-5">Login now!</h1>
             <div className="card-body">
                 <form onSubmit={handleLogIn} >
 
-                <fieldset className="fieldset">
+                <fieldset className="fieldset text-primary">
                     <label className="label">Email</label>
                     <input type="email" className="input" name='email' placeholder="Email" />
                     <label className="label">Password</label>
                     <input type="password" className="input" name='password' placeholder="Password" />
                     <div><a className="link link-hover">Forgot password?</a></div>
-                        <button className="btn btn-neutral mt-4">Login</button>
+                        <button className="btn btn-neutral mt-4 bg-primary">Login</button>
 
                     </fieldset>
                 </form>
           <button onClick={handleLoginWithGoogle} className="btn btn-outline btn-primary">Login With Google</button>
-                    <p>Dont’t Have An Account ?<Link className='text-blue-400' to={'/register'}>Register</Link> </p>
+                    <p>Dont’t Have An Account ?  <Link className='text-blue-500 text-[15px]' to={'/register'}>Register</Link> </p>
             </div>
         </div>
     );

@@ -12,7 +12,7 @@ const Navbar = () => {
   //   Home, All Vehicles, Add Vehicle, My Vehicles, My
   // Bookings, Login/Register
   const links = (
-    <div className="space-x-4">
+    <div className="space-x-4  *:p-2 text-[17px] *:rounded-[10px] *:hover:text-primary *:hover:border-1 *:hover:border-primary  ">
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/allVehicles"}>All Vehicles</NavLink>
       <NavLink to={"/addVehicle"}>Add Vehicle</NavLink>
@@ -32,7 +32,7 @@ const Navbar = () => {
         });
       })
       .catch((error) => {
-        Swal.fire(err.message);
+        Swal.fire(error.message);
       });
   };
   return (
@@ -64,7 +64,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl px-0">daisyUI</a>
+          <a className="btn btn-ghost text-2xl text-primary px-0">TripWise</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -81,18 +81,24 @@ const Navbar = () => {
                 />
               
               </div>{" "}
-              <Link onClick={() => handleLogout()}>Logout</Link>
+              <Link className="p-1.5 px-4 rounded-2xl bg-primary text-white hover:bg-transparent hover:border hover:border-primary hover:text-primary" onClick={() => handleLogout()}>Logout</Link>
             </div>
           ) : (
-            <div className="space-x-3">
+            <div className="space-x-3 text-[20px]">
               {" "}
-              <Link to={"/login"}>Login</Link>
-              <Link to={"/register"}>Register</Link>
+              <Link className="p-1.5 px-4 rounded-2xl bg-primary text-white hover:bg-transparent hover:border hover:border-primary hover:text-primary" to={"/login"}>Login</Link>
+              <Link className="p-1.5 px-4 rounded-2xl bg-primary text-white hover:bg-transparent hover:border hover:border-primary hover:text-primary"  to={"/register"}>Register</Link>
             </div>
           )}
         </div>
       </div>
-      {isHovering && (<h2 className="absolute z-10 right-10">{user.displayName || 'N/A'}</h2> )}
+      {isHovering && ( <div className=" bg-gray-400 rounded-2xl p-5 text-2xl text-primary absolute z-10 right-16">
+        <h2 className="">{user.displayName || 'N/A'}</h2>
+        <br />
+        <h2 className="">{user.email || 'N/A'}</h2>
+
+        </div>
+      )}
     </div>
   );
 };

@@ -1,16 +1,20 @@
 import { useLoaderData } from "react-router";
 import useAxiosSecure from './../../hooks/useAxiosSecure';
 import Swal from "sweetalert2";
+import { use } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const ProductDetails = () => {
-           const axiosSecure = useAxiosSecure();
+    const axiosSecure = useAxiosSecure();
+    const {user}=use(AuthContext)
 
   const product = useLoaderData();
+    console.log(product);
+   product.userEmail = user.email;
   
     const handleBooking = () => {
         axiosSecure.post('/bookProducts', product)
             .then(data => {
-         console.log('after secure call',data.data);
  if (data.data.insertedId) {
                       Swal.fire({
                                             position: "top-end",

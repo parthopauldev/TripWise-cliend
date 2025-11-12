@@ -68,8 +68,8 @@ let handleLoginWithGoogle = () => {
     })
   }
   return (
-    <div className="card bg-base-100 mx-auto w-full max-w-sm shrink-0 shadow-2xl">
-      <h1 className="text-5xl font-bold">Register now!</h1>
+    <div className="card my-[30px] text-primary p-4 bg-base-100 mx-auto w-full max-w-sm shrink-0 shadow-2xl">
+      <h1 className="text-5xl text-center font-bold">Register now!</h1>
       <div className="card-body">
         <form onSubmit={handleRegister}>
           <fieldset className="fieldset">
@@ -114,10 +114,10 @@ let handleLoginWithGoogle = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button className="btn btn-neutral mt-4">Register</button>
+            <button className="btn btn-neutral mt-4 bg-primary">Register</button>
           </fieldset>
               </form>
-                          <button onClick={handleLoginWithGoogle} className="btn btn-outline btn-primary">Login With Google</button>
+                          <button  onClick={handleLoginWithGoogle} className="btn  btn-outline btn-primary">Login With Google</button>
 
                 <p className="">
             Allready  Have An Account ?{' '}

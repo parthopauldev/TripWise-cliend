@@ -4,16 +4,28 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: blue;
-  --color-secondary: teal;
+  --color-primary: #03A6A1;
+  --color-secondary: #70B2B2;
 }
 
-/* 👇 custom styles after plugin imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer components {
   .btn-custom {
-    @apply btn bg-[--color-primary] text-black hover:bg-[--color-secondary];
+    @apply bg-[#016B61] text-white p-2 rounded-lg shadow-md
+           transition duration-300 ease-in-out
+            hover:border hover:border-[#016B61] hover:shadow-lg;
   }
 }
+
 .active{
-  border:2px solid red
+
+
+
+border-bottom: 2px solid #016B61;
+
+
+
 }

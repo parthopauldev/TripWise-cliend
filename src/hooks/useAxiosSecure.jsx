@@ -1,7 +1,8 @@
 import axios from "axios";
 import useAuth from "./useAuth";
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../contexts/AuthContext";
 
 const instance = axios.create({
   baseURL: 'http://localhost:3000'
@@ -9,7 +10,9 @@ const instance = axios.create({
 }); 
 
 const useAxiosSecure = () => {
-const {user,signOutUser}=useAuth()
+  const { user, signOutUser } = useAuth()
+ 
+  
 const navigate=useNavigate()
   useEffect(() => {
 
@@ -18,6 +21,7 @@ const navigate=useNavigate()
     console.log(config);
     const token = user.accessToken
     if (token) {
+     
       
       config.headers.Authorization=`Bearer ${token}`
     }
@@ -31,11 +35,11 @@ const navigate=useNavigate()
       const status = err.status;
       console.log(status);
       
-      if (status === 303 || status ==401) {
+      if (status === 401 || status ==403) {
         console.log('log out the user for bad request');
         signOutUser()
           .then(() => {
-            // navigator user to the login page 
+           
             navigate('/register')
         })
       }
