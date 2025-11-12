@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDtOVMfRfgblbwQSZQdSmwLrVjk8O5bvOw",
-  authDomain: "tripwise-auth-ca33a.firebaseapp.com",
-  projectId: "tripwise-auth-ca33a",
-  storageBucket: "tripwise-auth-ca33a.firebasestorage.app",
-  messagingSenderId: "818375953151",
-  appId: "1:818375953151:web:30e66120770bc8feaadaca"
+  apiKey:import.meta.env.VITE_apiKey ,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId ,
+  storageBucket:import.meta.env.VITE_storageBucket ,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId ,
+  appId:import.meta.env.VITE_appId 
 };
 
 // Initialize Firebase
