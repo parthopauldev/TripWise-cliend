@@ -9,28 +9,17 @@ import LoadingPage from "../../pages/LoadingPage/LoadingPage";
 const ProductDetails = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = use(AuthContext);
-  const [product, setProduct] = useState();
-  const [loading, setLoading] = useState(true);
-  const { _id: productId } = useLoaderData();
+  const [loading, setLoading] = useState(false);
+  const product = useLoaderData();
   
+console.log(product);
 
   
-
-  useEffect(() => {
-    axiosSecure.get(`/products/${productId}`).then((data) => {
-      const newProduct = data.data;
-      if (user?.email) {
-        newProduct.userEmail = user.email;
-      }
-      setProduct(newProduct);
-      console.log(newProduct);
-
-      setLoading(false);
-    });
-  }, [productId, axiosSecure, user]);
+ 
+ 
 
   const handleBooking = () => {
-    axiosSecure.post("/bookProducts", product).then((data) => {
+    axiosSecure.post("/bookProducts", { ...product,userEmail:user.email }).then((data) => {
       if (data.data.insertedId) {
         Swal.fire({
           position: "top-end",

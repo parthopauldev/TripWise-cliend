@@ -1,6 +1,7 @@
 import React, { use, useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { AuthContext } from "../../contexts/AuthContext";
+import MyBookingProductDetails from "../../components/MyBookingProductDetails/MyBookingProductDetails";
 
 const MyBookings = () => {
   const { user } = use(AuthContext);
@@ -18,10 +19,10 @@ const MyBookings = () => {
   }, [user,axiosSecure]);
 console.log(products);
 
-    return <div>
+    return <div className=" space-y-4">
         {
         products.map(product => (
-          <p>{ product.vehicleName}</p>
+          <MyBookingProductDetails product={product}></MyBookingProductDetails>
            ))
       }
   </div>;
