@@ -1,6 +1,6 @@
 # ✈️ TravelEase – Vehicle Booking & Trip Management Platform
 
-**Live Site URL:** []
+**Live Site URL:** [https://tripwise22.netlify.app/]
 
 ## ✨ Project Features
 
